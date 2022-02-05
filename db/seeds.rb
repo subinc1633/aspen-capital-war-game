@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Player.delete_all
+ApplicationRecord.connection.reset_pk_sequence!('players')
+
+player1 = Player.create!(name: 'Player 1', score: 0)
+player2 = Player.create!(name: 'Player 2', score: 0)

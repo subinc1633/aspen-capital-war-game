@@ -51,3 +51,76 @@ Completed 200 OK in 22ms (Views: 15.6ms | ActiveRecord: 0.0ms)
 
   [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(16821051781811130)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to EditPlayersTable (20220205213938)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "players" ALTER COLUMN "name" DROP NOT NULL[0m
+  ↳ db/migrate/20220205213938_edit_players_table.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "players" ALTER COLUMN "score" DROP NOT NULL[0m
+  ↳ db/migrate/20220205213938_edit_players_table.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220205213938"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(16821051781811130)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(16821051781811130)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to EditPlayersColumnsNull (20220205214040)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "players" ALTER COLUMN "name" SET NOT NULL[0m
+  ↳ db/migrate/20220205214040_edit_players_columns_null.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "players" ALTER COLUMN "score" SET NOT NULL[0m
+  ↳ db/migrate/20220205214040_edit_players_columns_null.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220205214040"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(16821051781811130)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mPlayer Destroy (1.8ms)[0m  [1m[31mDELETE FROM "players"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mPlayer Create (0.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "score") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Player 1"], ["score", 0]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "score") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Player 2"], ["score", 0]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
