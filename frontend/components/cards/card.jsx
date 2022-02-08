@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Card = ({ suit, value }) => {
     return (
-        <div>
-            <p>{value}{suit}</p>
-        </div>
+        <span>
+            {value}{suit}
+        </span>
     );
 };
 

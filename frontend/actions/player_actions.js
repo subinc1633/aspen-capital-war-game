@@ -10,3 +10,7 @@ export const receiveAllPlayers = (players) => ({
 export const fetchPlayers = () => dispatch => (
     PlayerApiUtil.fetchPlayers().then(players => dispatch(receiveAllPlayers(players)))
 );
+
+export const updatePlayers = (playerId) => dispatch => (
+    PlayerApiUtil.updatePlayers(playerId).then(players => dispatch(receiveAllPlayers(players)))
+);
