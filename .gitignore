@@ -1,7 +1,6 @@
 .DS_Store
 node_modules/
-bundle.js
-bundle.js.map
+bundle.js*
 tmp/
 .byebug_history
 /public/assets
