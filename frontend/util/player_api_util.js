@@ -5,9 +5,10 @@ export const fetchPlayers = () => (
     })
 );
 
-export const updatePlayers = (playerId) => (
+export const updatePlayer = (player) => (
     $.ajax({
         method: 'PATCH',
-        url: `api/players/${playerId}`
+        url: `api/players/${player.id}`,
+        data: { player }
     })
 );

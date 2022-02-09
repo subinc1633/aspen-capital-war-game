@@ -1,64 +1,109 @@
-import React, { useEffect, useState } from 'react';
-import { updatePlayers } from '../../actions/player_actions';
+import React, { useEffect } from 'react';
+import { updatePlayer } from '../../actions/player_actions';
 import PlayerIndex from '../players/player_index';
 import { useDispatch } from 'react-redux';
 
 const Play = (props) => {
+    let { player1, player2, setPlayer1, setPlayer2, setDeck, setGameOver, values } = props;
     let war = [];
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!props.player1.hand.length) {
+        if (!player1.hand.length) {
             let updated1 = {
-                id: Object.values(players)[0]
+                id: player1.id,
+                name: 'Player 1',
+                score: player1.score + 1
             }
 
-            updatePlayers()
-        } else if (!props.player2.hand.length) {
-            updatePlayers()
+            dispatch(updatePlayer(updated1));
+            setPlayer1(prevState => {
+                return {
+                    ...prevState,
+                    score: player1.score + 1
+                }
+            });
+        } else if (!player2.hand.length) {
+            let updated2 = {
+                id: player2.id,
+                name: 'Player 2',
+                score: player2.score + 1
+            }
+
+            dispatch(updatePlayer(updated2));
+            setPlayer2(prevState => {
+                return {
+                    ...prevState,
+                    score: player2.score + 1
+                }
+            })
         }
     })
 
     const handleClick = () => {
-        if (player1Card && player2Card) {
-            player1Hand.pop();
-            player2Hand.pop();
-            if (values.indexOf(player1Card.value) > values.indexOf(player2Card.value)) {
-                player1Hand.unshift(player1Card, player2Card);
-            } else if (values.indexOf(player1Card.value) < values.indexOf(player2Card.value)) {
-                player2Hand.unshift(player1Card, player2Card);
+        if (player1.card && player2.card) {
+            player1.hand.pop();
+            player2.hand.pop();
+            if (values.indexOf(player1.card.value) > values.indexOf(player2.card.value)) {
+                player1.hand.unshift(player1.card, player2.card);
+            } else if (values.indexOf(player1.card.value) < values.indexOf(player2.card.value)) {
+                player2.hand.unshift(player1.card, player2.card);
             } else {
-                for (let i = 1; i < 4; i++) {
-                    war.push(player1Hand.pop());
-                    war.push(player2Hand.pop());
-                };
-
-                if (player2Hand.length <= 3 || war[war.length - 2] && values.indexOf(war[war.length - 2].value) > values.indexOf(war[war.length - 1].value)) {
-                    setPlayer1Hand(player1Hand.concat([player1Card, player2Card], war));
-                } else {
-                    setPlayer2Hand(player2Hand.concat([player1Card, player2Card], war));
-                }
-
-                setPlayer1Card(war[war.length - 2]);
-                setPlayer2Card(war[war.length - 1]);
-
                 war = [];
 
-                if (!player1Hand.length || !player2Hand.length) {
+                for (let i = 1; i < 4; i++) {
+                    war.push(player1.hand.pop());
+                    war.push(player2.hand.pop());
+                };
+
+                if (player2.hand.length <= 3 || war[war.length - 2] && values.indexOf(war[war.length - 2].value) > values.indexOf(war[war.length - 1].value)) {
+                    setPlayer1(prevState => {
+                        return {
+                            ...prevState,
+                            hand: player1.hand.concat([player1.card, player2.card], war)
+                        };
+                    });
+                } else {
+                    setPlayer2(prevState => {
+                        return {
+                            ...prevState,
+                            hand: player2.hand.concat([player1.card, player2.card], war)
+                        };
+                    });
+                }
+
+                setPlayer1(prevState => {
+                    return {...prevState, card: war[war.length - 2]} });
+                setPlayer2(prevState => { 
+                    return {...prevState, card: war[war.length - 1]} });
+
+                if (!player1.hand.length || !player2.hand.length) {
                     setDeck([]);
                     setGameOver(true);
                 }
+
                 return;
             }
-            setPlayer1Hand(player1Hand);
-            setPlayer1Card(player1Hand[player1Hand.length - 1]);
-            setPlayer2Hand(player2Hand);
-            setPlayer2Card(player2Hand[player2Hand.length - 1]);
+            setPlayer1(prevState => {
+                return {
+                    ...prevState,
+                    hand: player1.hand,
+                    card: player1.hand[player1.hand.length - 1]
+                };
+            });
+            setPlayer2(prevState => {
+                return {
+                    ...prevState,
+                    hand: player2.hand,
+                    card: player2.hand[player2.hand.length - 1]
+                };
+            });
 
-            if (!player1Hand.length || !player2Hand.length) {
-                if (!player1Hand.length) {
-                    setPlayer2Pt(player2Pt + 1);
+            if (!player1.hand.length || !player2.hand.length) {
+                if (!player1.hand.length) {
+                    setPlayer2(prevState => { return { ...prevState, points: player2.points + 1 } });
                 } else {
-                    setPlayer1Pt(player1Pt + 1);
+                    setPlayer1(prevState => { return {points: player1.points + 1} });
                 }
                 setDeck([]);
                 setGameOver(true);
@@ -69,15 +114,8 @@ const Play = (props) => {
     return (
         <div>
             <PlayerIndex
-                deck={deck}
-                players={players}
-                player1Card={player1Card}
-                player2Card={player2Card}
-                player1Hand={player1Hand}
-                player2Hand={player2Hand}
-                score1={player1Pt}
-                score2={player2Pt}
-                setGameOver={setGameOver}
+                player1={player1}
+                player2={player2}
              />
             <button onClick={handleClick}>Draw</button>
         </div>

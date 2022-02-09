@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Card from '../cards/card';
 
-const Player = ({player, hand, card}) => {
+const Player = ({player}) => {
     return (
         <div>
-            { card &&
+            { player.card &&
                 <p>{player.name} Deck Count:<br/>
-                    {hand.length}<br/>
-                    {player.name}'s card: <Card suit={card.suit} value={card.value}/><br/>
+                    {player.hand.length}<br/>
+                    {player.name}'s card: <Card suit={player.card.suit} value={player.card.value}/><br/>
                     {player.name} Score:<br/>
                     {player.score}
                 </p>

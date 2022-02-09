@@ -14,6 +14,7 @@ class Api::PlayersController < ApplicationController
     end
 
     def update
+        debugger
         @player = Player.find(params[:id])
         if @player.update(player_params)
             render 'api/players/index'
