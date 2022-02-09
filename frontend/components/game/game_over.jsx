@@ -3,7 +3,7 @@ import React from 'react';
 const GameOver = ({ createGame, setGameOver, player1, setPlayer1, setPlayer2 }) => {
     const newGame = () => {
         const newDeck = createGame();
-        let slice1 = newDeck.slice(0, 1);
+        let slice1 = newDeck.slice(0, 10);
         let slice2 = newDeck.slice(26, 36);
 
         setPlayer1(prevState => {

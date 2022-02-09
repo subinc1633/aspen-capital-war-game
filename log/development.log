@@ -27874,3 +27874,308 @@ Unpermitted parameter: :id
 Completed 200 OK in 23ms (Views: 10.3ms | ActiveRecord: 2.8ms)
 
 
+Started GET "/" for ::1 at 2022-02-09 14:00:35 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/subincho/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 1286ms (Views: 1281.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-09 14:00:38 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (12.7ms)
+Completed 200 OK in 25ms (Views: 13.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-09 14:01:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 336ms (Views: 334.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-09 14:01:03 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.6ms)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/api/players/1" for ::1 at 2022-02-09 14:01:05 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"1", "name"=>"Player 1", "score"=>"15"}, "id"=>"1"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (1.3ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 15], ["id", 1]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.4ms)
+Completed 200 OK in 22ms (Views: 10.1ms | ActiveRecord: 5.2ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:06 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"29"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (1.7ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 29], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.5ms)
+Completed 200 OK in 25ms (Views: 14.8ms | ActiveRecord: 5.7ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:08 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"30"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (1.4ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 30], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.3ms)
+Completed 200 OK in 18ms (Views: 10.0ms | ActiveRecord: 3.8ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:09 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"31"}, "id"=>"2"}
+  [1m[36mPlayer Load (14.5ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (8.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 31], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.7ms)
+Completed 200 OK in 47ms (Views: 15.6ms | ActiveRecord: 26.1ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:09 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"32"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (6.5ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 32], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.5ms)
+Completed 200 OK in 27ms (Views: 11.5ms | ActiveRecord: 11.5ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:11 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"33"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (1.9ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 33], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.6ms)
+Completed 200 OK in 19ms (Views: 11.5ms | ActiveRecord: 4.2ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:14 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"34"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (1.0ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 34], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.7ms)
+Completed 200 OK in 20ms (Views: 10.3ms | ActiveRecord: 5.5ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:15 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"35"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (1.9ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 35], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.5ms)
+Completed 200 OK in 21ms (Views: 10.1ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/" for ::1 at 2022-02-09 14:01:28 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 348ms (Views: 345.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-09 14:01:29 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (6.8ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (8.0ms)
+Completed 200 OK in 18ms (Views: 11.0ms | ActiveRecord: 6.8ms)
+
+
+Started PATCH "/api/players/1" for ::1 at 2022-02-09 14:01:30 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"1", "name"=>"Player 1", "score"=>"16"}, "id"=>"1"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (3.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 16], ["id", 1]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.4ms)
+Completed 200 OK in 24ms (Views: 12.6ms | ActiveRecord: 7.4ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:32 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"36"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (17.4ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 36], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.8ms)
+Completed 200 OK in 32ms (Views: 9.1ms | ActiveRecord: 19.6ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:33 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"37"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (1.5ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 37], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.7ms)
+Completed 200 OK in 21ms (Views: 12.9ms | ActiveRecord: 5.1ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:33 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"38"}, "id"=>"2"}
+  [1m[36mPlayer Load (15.7ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (0.6ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 38], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.6ms)
+Completed 200 OK in 31ms (Views: 11.1ms | ActiveRecord: 17.3ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:34 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"39"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (3.3ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 39], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.4ms)
+Completed 200 OK in 21ms (Views: 9.1ms | ActiveRecord: 7.8ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:35 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"40"}, "id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (0.7ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 40], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.4ms)
+Completed 200 OK in 18ms (Views: 10.8ms | ActiveRecord: 2.8ms)
+
+
+Started PATCH "/api/players/2" for ::1 at 2022-02-09 14:01:35 -0500
+Processing by Api::PlayersController#update as JSON
+  Parameters: {"player"=>{"id"=>"2", "name"=>"Player 2", "score"=>"41"}, "id"=>"2"}
+  [1m[36mPlayer Load (16.5ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/players_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[36mPlayer Update (0.4ms)[0m  [1m[33mUPDATE "players" SET "score" = $1 WHERE "players"."id" = $2[0m  [["score", 41], ["id", 2]]
+  ↳ app/controllers/api/players_controller.rb:18
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/players_controller.rb:18
+  Rendering api/players/show.json.jbuilder
+  Rendered api/players/show.json.jbuilder (0.5ms)
+Completed 200 OK in 35ms (Views: 11.6ms | ActiveRecord: 18.5ms)
+
+
