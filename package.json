@@ -21,6 +21,10 @@
   "bugs": {
     "url": "https://github.com/subinc1633/aspen-capital-war-game/issues"
   },
+  "engines": {
+    "node": "14.15.0",
+    "npm": "8.3.0"
+  },
   "homepage": "https://github.com/subinc1633/aspen-capital-war-game#readme",
   "dependencies": {
     "@babel/core": "^7.17.0",
