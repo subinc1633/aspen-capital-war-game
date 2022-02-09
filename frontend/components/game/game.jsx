@@ -6,8 +6,8 @@ import { fetchPlayers } from '../../actions/player_actions';
 
 const Game = ({ deck, setDeck, createGame, values }) => {
     const [gameOver, setGameOver] = useState(false);
-    let slice1 = deck.slice(0, 10);
-    let slice2 = deck.slice(26, 36);
+    let slice1 = deck.slice(0, 1);
+    let slice2 = deck.slice(26, 27);
     const [player1, setPlayer1] = useState({
         hand: slice1,
         card: slice1[slice1.length - 1]
