@@ -48,7 +48,7 @@ const App = () => {
                 
                 <button className="start-button" onClick={createGame}>Start</button>
             }
-            <footer>2022 Subin Cho | <a href="">GitHub</a> | <a href="">LinkedIn</a> | <a href="">Portfolio</a></footer>
+            <footer>2022 Subin Cho | <a href="https://github.com/subinc1633/aspen-capital-war-game">GitHub</a> | <a href="https://www.linkedin.com/in/sc1633/">LinkedIn</a> | <a href="http://subincho.net">Portfolio</a></footer>
         </div>
     )
 };
