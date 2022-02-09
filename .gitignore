@@ -4,3 +4,4 @@ bundle.js
 bundle.js.map
 tmp/
 .byebug_history
+/public/assets
