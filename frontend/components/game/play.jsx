@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { updatePlayer } from '../../actions/player_actions';
 import PlayerIndex from '../players/player_index';
 import { useDispatch } from 'react-redux';
@@ -7,38 +7,6 @@ const Play = (props) => {
     let { player1, player2, setPlayer1, setPlayer2, setDeck, setGameOver, values } = props;
     let war = [];
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (!player2.hand.length) {
-            let updated1 = {
-                id: player1.id,
-                name: 'Player 1',
-                score: player1.score + 1
-            }
-
-            dispatch(updatePlayer(updated1));
-            setPlayer1(prevState => {
-                return {
-                    ...prevState,
-                    score: player1.score + 1
-                }
-            });
-        } else if (!player2.hand.length) {
-            let updated2 = {
-                id: player2.id,
-                name: 'Player 2',
-                score: player2.score + 1
-            }
-
-            dispatch(updatePlayer(updated2));
-            setPlayer2(prevState => {
-                return {
-                    ...prevState,
-                    score: player2.score + 1
-                }
-            })
-        }
-    }, [])
 
     const handleClick = () => {
         if (player1.card && player2.card) {
@@ -84,6 +52,7 @@ const Play = (props) => {
 
                 return;
             }
+
             setPlayer1(prevState => {
                 return {
                     ...prevState,
@@ -101,9 +70,35 @@ const Play = (props) => {
 
             if (!player1.hand.length || !player2.hand.length) {
                 if (!player1.hand.length) {
-                    setPlayer2(prevState => { return { ...prevState, points: player2.points + 1 } });
+                    setPlayer2(prevState => { return { ...prevState, score: player2.score + 1 } });
+                    let updated2 = {
+                        id: player2.id,
+                        name: 'Player 2',
+                        score: player2.score + 1
+                    };
+
+                    dispatch(updatePlayer(updated2));
+                    setPlayer2(prevState => {
+                        return {
+                            ...prevState,
+                            score: player2.score + 1
+                        }
+                    });
                 } else {
-                    setPlayer1(prevState => { return {points: player1.points + 1} });
+                    setPlayer1(prevState => { return {...prevState, score: player1.score + 1} });
+                    let updated1 = {
+                        id: player1.id,
+                        name: 'Player 1',
+                        score: player1.score + 1
+                    }
+
+                    dispatch(updatePlayer(updated1));
+                    setPlayer1(prevState => {
+                        return {
+                            ...prevState,
+                            score: player1.score + 1
+                        }
+                    });
                 }
                 setDeck([]);
                 setGameOver(true);
@@ -112,12 +107,12 @@ const Play = (props) => {
     };
 
     return (
-        <div>
+        <div className="play-board">
             <PlayerIndex
                 player1={player1}
                 player2={player2}
-             />
-            <button onClick={handleClick}>Draw</button>
+             /><br/>
+            <button className="draw-button" onClick={handleClick}>Draw</button>
         </div>
     )
 };

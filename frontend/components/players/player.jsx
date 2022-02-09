@@ -4,12 +4,12 @@ import Card from '../cards/card';
 const Player = ({player}) => {
     return (
         <div>
+            <p>
+                {player.name} Score: {player.score}
+            </p><br/>
             { player.card &&
-                <p>{player.name} Deck Count:<br/>
-                    {player.hand.length}<br/>
-                    {player.name}'s card: <Card suit={player.card.suit} value={player.card.value}/><br/>
-                    {player.name} Score:<br/>
-                    {player.score}
+                <p>{player.name} Deck: {player.hand.length}<br/>
+                    {player.name === 'Player 1' ? <span>You</span> : <span>{player.name}</span>} played: <Card suit={player.card.suit} value={player.card.value}/><br/>
                 </p>
             }
         </div>

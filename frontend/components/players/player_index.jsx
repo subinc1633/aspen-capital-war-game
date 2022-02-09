@@ -3,7 +3,7 @@ import Player from './player';
 
 const PlayerIndex = ({ player1, player2 }) => {
     return (
-        <div>
+        <div className="players-container">
             <Player player={player1} />
             <Player player={player2} />
         </div>

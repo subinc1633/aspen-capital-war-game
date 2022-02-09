@@ -1,0 +1,46 @@
+.red-card {
+    color: #ba2424;
+}
+
+.players-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.play-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.draw-button {
+    font-size: 1.2em;
+    width: 80px;
+    height: 30px;
+}
+
+.game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+    h3 {
+        font-size: 2em;
+        color: #ba2424;
+    }
+
+    .winner {
+        margin-top: 10px;
+        font-size: 1.5em;
+    }
+
+    button {
+        @include start;
+        width: 200px;
+        font-size: 1.2em;
+        white-space: nowrap;
+    }
+}

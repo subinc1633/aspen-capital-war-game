@@ -1,10 +1,10 @@
 import React from 'react';
 
-const GameOver = ({ createGame, setGameOver, player1, player2, setPlayer1, setPlayer2 }) => {
+const GameOver = ({ createGame, setGameOver, player1, setPlayer1, setPlayer2 }) => {
     const newGame = () => {
         const newDeck = createGame();
-        let slice1 = newDeck.slice(0, 1);
-        let slice2 = newDeck.slice(26);
+        let slice1 = newDeck.slice(0, 10);
+        let slice2 = newDeck.slice(26, 36);
 
         setPlayer1(prevState => {
             return {
@@ -26,13 +26,13 @@ const GameOver = ({ createGame, setGameOver, player1, player2, setPlayer1, setPl
     };
 
     return (
-        <div>
+        <div className="game-over">
             <h3>Game Over</h3>
             {
                 !player1.hand.length ?
-                    <h5>Player 2 Wins</h5>
+                    <h5 className="winner">Player 2 Wins</h5>
                 :
-                    <h5>Player 1 Wins</h5>
+                    <h5 className="winner">You win!</h5>
             }
             <button onClick={() => newGame()}>Play Again</button>
         </div>

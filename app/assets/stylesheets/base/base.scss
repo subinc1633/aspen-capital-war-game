@@ -1,6 +1,10 @@
-@import './variables.scss';
 @import './mixins.scss';
 
 body, button {
     font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
+
+button {
+    cursor: pointer;
 }

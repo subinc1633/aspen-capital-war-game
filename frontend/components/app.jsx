@@ -45,9 +45,8 @@ const App = () => {
                     values={values}
                     createGame={createGame} />
             :
-                <div className="start-screen">
-                    <button onClick={createGame}>Start</button>
-                </div>
+                
+                <button className="start-button" onClick={createGame}>Start</button>
             }
             <footer>2022 Subin Cho | <a href="">GitHub</a> | <a href="">LinkedIn</a> | <a href="">Portfolio</a></footer>
         </div>
