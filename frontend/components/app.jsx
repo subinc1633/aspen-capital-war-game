@@ -32,10 +32,11 @@ const App = () => {
         createDeck();
         setDeck(shuffle(deck));
         setGameStart(true);
+        return deck;
     };
 
     return (
-        <div>
+        <div className="game">
             <h1>Game of War</h1>
             { gameStart ?
                 <Game
@@ -44,9 +45,8 @@ const App = () => {
                     values={values}
                     createGame={createGame} />
             :
-                <div>
+                <div className="start-screen">
                     <button onClick={createGame}>Start</button>
-                    <button>How to Play</button>
                 </div>
             }
             <footer>2022 Subin Cho | <a href="">GitHub</a> | <a href="">LinkedIn</a> | <a href="">Portfolio</a></footer>

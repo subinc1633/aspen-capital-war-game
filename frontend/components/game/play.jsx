@@ -9,7 +9,7 @@ const Play = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (!player1.hand.length) {
+        if (!player2.hand.length) {
             let updated1 = {
                 id: player1.id,
                 name: 'Player 1',
@@ -38,7 +38,7 @@ const Play = (props) => {
                 }
             })
         }
-    })
+    }, [])
 
     const handleClick = () => {
         if (player1.card && player2.card) {

@@ -46,7 +46,13 @@ const Game = ({ deck, setDeck, createGame, values }) => {
         <div>
             {
                 gameOver ?
-                    <GameOver createGame={createGame} setGameOver={setGameOver} />
+                    <GameOver
+                        createGame={createGame}
+                        setGameOver={setGameOver}
+                        player1={player1}
+                        player2={player2}
+                        setPlayer1={setPlayer1}
+                        setPlayer2={setPlayer2} />
                 :
                     <Play
                         player1={player1}
