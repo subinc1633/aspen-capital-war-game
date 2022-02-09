@@ -48,6 +48,35 @@ const Play = (props) => {
                 if (!player1.hand.length || !player2.hand.length) {
                     setDeck([]);
                     setGameOver(true);
+                    if (!player1.hand.length) {
+                        let updated2 = {
+                            id: player2.id,
+                            name: 'Player 2',
+                            score: player2.score + 1
+                        };
+
+                        dispatch(updatePlayer(updated2));
+                        setPlayer2(prevState => {
+                            return {
+                                ...prevState,
+                                score: player2.score + 1
+                            }
+                        });
+                    } else if (!player2.hand.length) {
+                        let updated1 = {
+                            id: player1.id,
+                            name: 'Player 1',
+                            score: player1.score + 1
+                        }
+
+                        dispatch(updatePlayer(updated1));
+                        setPlayer1(prevState => {
+                            return {
+                                ...prevState,
+                                score: player1.score + 1
+                            }
+                        });
+                    }
                 }
 
                 return;
@@ -69,41 +98,40 @@ const Play = (props) => {
             });
 
             if (!player1.hand.length || !player2.hand.length) {
-                if (!player1.hand.length) {
-                    setPlayer2(prevState => { return { ...prevState, score: player2.score + 1 } });
-                    let updated2 = {
-                        id: player2.id,
-                        name: 'Player 2',
-                        score: player2.score + 1
-                    };
-
-                    dispatch(updatePlayer(updated2));
-                    setPlayer2(prevState => {
-                        return {
-                            ...prevState,
+                    setDeck([]);
+                    setGameOver(true);
+                    if (!player1.hand.length) {
+                        let updated2 = {
+                            id: player2.id,
+                            name: 'Player 2',
                             score: player2.score + 1
-                        }
-                    });
-                } else {
-                    setPlayer1(prevState => { return {...prevState, score: player1.score + 1} });
-                    let updated1 = {
-                        id: player1.id,
-                        name: 'Player 1',
-                        score: player1.score + 1
-                    }
+                        };
 
-                    dispatch(updatePlayer(updated1));
-                    setPlayer1(prevState => {
-                        return {
-                            ...prevState,
+                        dispatch(updatePlayer(updated2));
+                        setPlayer2(prevState => {
+                            return {
+                                ...prevState,
+                                score: player2.score + 1
+                            }
+                        });
+                    } else if (!player2.hand.length) {
+                        let updated1 = {
+                            id: player1.id,
+                            name: 'Player 1',
                             score: player1.score + 1
                         }
-                    });
+
+                        dispatch(updatePlayer(updated1));
+                        setPlayer1(prevState => {
+                            return {
+                                ...prevState,
+                                score: player1.score + 1
+                            }
+                        });
+                    }
                 }
-                setDeck([]);
-                setGameOver(true);
-            }
         }
+        console.log(player1.hand.length)
     };
 
     return (
